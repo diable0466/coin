@@ -86,6 +86,8 @@ def analyze_coin(coin="BTC"):
         boll_score = round(-((lower - price) / center) * 100)
     else:
         boll_score = round(((price - center) / (upper - lower)) * 100)
+    else:
+        boll_score = 0 # 또는 예외처리
 
     # 평균 계산
     logs = [
@@ -150,7 +152,7 @@ async def 자동매수(interaction: discord.Interaction, coin: str, 비율: int 
     msg = ""
     try:
         for i in range(반복):
-            logs, score = smart_analysis(coin)  # 반드시 smart_analysis가 먼저 정의되어 있어야 합니다
+            logs, score = analysis(coin)  # 반드시 smart_analysis가 먼저 정의되어 있어야 합니다
             if score >= 조건:
                 symbol = f"{coin.upper()}/USDT"
                 balance = exchange.fetch_balance()
