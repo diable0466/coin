@@ -87,8 +87,8 @@ def analyze_coin(coin="BTC"):
     else:
         boll_score = round(((price - center) / (upper - lower)) * 100)
     else:
-        boll_score = 0 # 또는 예외처리
-
+        boll_sore = 0
+    
     # 평균 계산
     logs = [
         f"RSI: {round(rsi, 2)} → {rsi_score}%",
