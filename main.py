@@ -86,8 +86,6 @@ def analyze_coin(coin="BTC"):
         boll_score = round(-((lower - price) / center) * 100)
     else:
         boll_score = round(((price - center) / (upper - lower)) * 100)
-    else:
-        boll_sore = 0
     
     # 평균 계산
     logs = [
